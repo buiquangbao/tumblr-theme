@@ -1,0 +1,541 @@
+<html>
+    <head>
+        <title>{Title} | Blogs</title>
+        <link rel="shortcut icon" href="{Favicon}">
+        <link rel="alternate" type="application/rss+xml" href="{RSS}">
+        {block:Description}
+            <meta name="description" content="{MetaDescription}" />
+        {/block:Description}
+
+        <!-- 
+            width=device-width: sets the width of the page to follow the screen-width of the device.
+            initial-scale=1.0: sets the initial zoom level when the page is first loaded by the browser.
+         -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+
+         <!-- -------- THEME OPTION -------- -->
+        <meta name="text:I am writing" content="about technology, coding tutorials, graphic design, photography and my life's adventures"/>
+        <meta name="text:Total blogs" content="1"/>
+
+    </head>
+
+    <style>
+        * {
+            font-family: 'Quicksand', sans-serif;
+            box-sizing: border-box;
+        }
+        /* RWD Grid */
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        /* For mobile phones: */
+        [class*="col-"] {
+            width: 100%;
+            float: left;
+            border: 1px dotted transparent;
+        }
+        /* For desktop: */
+        @media only screen and (min-width: 768px) {
+            .col-1  {width: 8.33%;}
+            .col-2  {width: 16.66%;}
+            .col-3  {width: 25%;}
+            .col-4  {width: 33.33%;}
+            .col-5  {width: 41.66%;}
+            .col-6  {width: 50%;}
+            .col-7  {width: 58.33%;}
+            .col-8  {width: 66.66%;}
+            .col-9  {width: 75%;}
+            .col-10 {width: 83.33%;}
+            .col-11 {width: 91.66%;}
+            .col-12 {width: 100%;}
+        }
+
+        body {
+            background-color: rgb(250, 250, 250);
+        }
+
+        img {
+            /* max-width: 100%; */
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+
+        a {
+            color: rgb(61, 61, 61);
+            text-decoration: none;
+            border-bottom: #9e9e9e 1.5px dotted;
+        }
+        a:hover {
+            color: black;
+            border-bottom: none;
+        }
+
+        ol, ul {
+            list-style-position: inside;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .fixed-div {
+            position: fixed;
+        }
+
+        #posts {
+            list-style-type: none;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .post {
+            background-color: white;
+            border-radius: 12px;
+            margin: 0px 0px 50px 0px;
+            padding: 20px 20px 40px 20px;
+            text-align: justify;
+        }
+
+        .side {
+            width: 100%;
+            overflow: hidden; 
+            border-radius: 5px;
+        } .side-inner {
+            background-color: white;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            padding: 20px 20px 0px 20px;
+        }
+
+        .post-title {
+            text-align: center;
+            text-transform: uppercase;
+            font-size: larger;
+            font-weight: bold;
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+        .tooltip .tooltiptext {
+            font-size: small;
+            visibility: hidden;
+            width: 100px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            top: 200%;
+            left: 50%;
+            margin-left: -50px;
+        }
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent black transparent;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+        }
+
+        .tags {
+            float: right;
+            list-style-type: none;
+        }
+
+        .tags li {
+            float: left;
+            padding: 0px 0px 0px 10px;
+        } .tags a {
+            text-transform: uppercase;
+            color: rgb(80, 80, 80);
+            font-size: x-small;
+            letter-spacing: 2px;
+            border-bottom: none;
+        } .tags a:hover {
+            color: black;
+        }
+
+        .tags-side a {
+            color: rgb(87, 87, 87);
+        } .tags-side a:hover {
+            color: black;
+        }
+
+        .posted-time {
+            text-align: center;
+            text-transform: uppercase;
+            font-size: smaller;
+            color: rgb(80, 80, 80);
+        }
+
+        .fhs-script {
+            text-align: left;
+        }
+        .fhs-script a {
+            border-bottom: none;
+            cursor: initial;
+            pointer-events: none;
+        }
+        .fhs-script-2 {
+            text-align: center;
+        }
+        .fhs-script-2 a {
+            color: transparent;
+            border-bottom: none;
+            cursor: initial;
+            pointer-events: none;
+        }
+
+    </style>
+    
+    <body>
+        
+        <div style="height: 25vh;"></div>
+
+        <div class="row">
+            <!-- --------------------------------- LEFT SIDE ---------------------------------- -->
+            <div class="col-1"></div>
+            <div class="col-2">
+                <div class="fixed-div">
+                    <div class="col-2" style="width: 250px; height: 350px; border-radius: 6px;">
+                        <!-- 30 -->
+                        <div style="height: 35%; width: 100%; background-color: rgb(29, 29, 29);">
+                            <img src="{HeaderImage}" style="max-height: 100%; object-fit: cover;">
+                            <div style="width: 90px; height: 90px; background-color: rgb(255, 255, 255); position: relative; border-radius: 100%; left: 80px; top: -45px;">
+                                <div style="width: 75px; height: 75px; background-color: rgb(63, 211, 186); position: relative; border-radius: 100%; left: 7.5px; top: 7.5px; overflow: hidden;">
+                                    <a href="{BlogURL}" style="border-bottom: none;">
+                                        <img src="{PortraitURL-128}" style="max-height: 100%; max-width: 100%;">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 50 -->
+                        <div style="height: 50%; width: 100%; background-color: white;">
+                            <div style="height: 40px;"></div>
+                            <a href="{BlogURL}" style="border-bottom: none;">
+                                <p style="text-align: center; text-transform: uppercase;">
+                                    {Title}
+                                </p>
+                            </a>
+                            <p style="text-align: center; font-size: small; margin: 0px 20px;">
+                                {Description}
+                            </p>
+                        </div>
+                        <!-- 20 -->
+                        <div style="height: 15%; width: 100%; background-color: white;">
+                            <svg style="width: 23px; height: 1px;"></svg>
+                            <!-- Portfolio -->
+                            <div class="tooltip">
+                                <a href="https://buiquangbao.github.io/" style="border-bottom: none;" target="_blank">
+                                    <img src="https://i.imgur.com/AignyKC.png" style="width: 24px; border-radius: 5px;">
+                                </a>
+                                <span class="tooltiptext">My Portfolio</span>
+                            </div>
+                            <!-- LinkedIn -->
+                            <div class="tooltip">
+                                <a href="https://www.linkedin.com/in/buiquangbao/" style="border-bottom: none;" target="_blank">
+                                    <svg xmlns="https://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                </a>
+                                <span class="tooltiptext">LinkedIn</span>
+                            </div>
+                            <!-- Github -->
+                            <div class="tooltip">
+                                <a href="https://github.com/buiquangbao" style="border-bottom: none;" target="_blank">
+                                    <svg xmlns="https://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-4.466 19.59c-.405.078-.534-.171-.534-.384v-2.195c0-.747-.262-1.233-.55-1.481 1.782-.198 3.654-.875 3.654-3.947 0-.874-.312-1.588-.823-2.147.082-.202.356-1.016-.079-2.117 0 0-.671-.215-2.198.82-.64-.18-1.324-.267-2.004-.271-.68.003-1.364.091-2.003.269-1.528-1.035-2.2-.82-2.2-.82-.434 1.102-.16 1.915-.077 2.118-.512.56-.824 1.273-.824 2.147 0 3.064 1.867 3.751 3.645 3.954-.229.2-.436.552-.508 1.07-.457.204-1.614.557-2.328-.666 0 0-.423-.768-1.227-.825 0 0-.78-.01-.055.487 0 0 .525.246.889 1.17 0 0 .463 1.428 2.688.944v1.489c0 .211-.129.459-.528.385-3.18-1.057-5.472-4.056-5.472-7.59 0-4.419 3.582-8 8-8s8 3.581 8 8c0 3.533-2.289 6.531-5.466 7.59z"/></svg>
+                                </a>
+                                <span class="tooltiptext">Github</span>
+                            </div>
+                            <!-- Instagram -->
+                            <div class="tooltip">
+                                <a href="https://www.instagram.com/bqbao_itus/" style="border-bottom: none;" target="_blank">
+                                    <svg xmlns="https://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M15.233 5.488c-.843-.038-1.097-.046-3.233-.046s-2.389.008-3.232.046c-2.17.099-3.181 1.127-3.279 3.279-.039.844-.048 1.097-.048 3.233s.009 2.389.047 3.233c.099 2.148 1.106 3.18 3.279 3.279.843.038 1.097.047 3.233.047 2.137 0 2.39-.008 3.233-.046 2.17-.099 3.18-1.129 3.279-3.279.038-.844.046-1.097.046-3.233s-.008-2.389-.046-3.232c-.099-2.153-1.111-3.182-3.279-3.281zm-3.233 10.62c-2.269 0-4.108-1.839-4.108-4.108 0-2.269 1.84-4.108 4.108-4.108s4.108 1.839 4.108 4.108c0 2.269-1.839 4.108-4.108 4.108zm4.271-7.418c-.53 0-.96-.43-.96-.96s.43-.96.96-.96.96.43.96.96-.43.96-.96.96zm-1.604 3.31c0 1.473-1.194 2.667-2.667 2.667s-2.667-1.194-2.667-2.667c0-1.473 1.194-2.667 2.667-2.667s2.667 1.194 2.667 2.667zm4.333-12h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm.952 15.298c-.132 2.909-1.751 4.521-4.653 4.654-.854.039-1.126.048-3.299.048s-2.444-.009-3.298-.048c-2.908-.133-4.52-1.748-4.654-4.654-.039-.853-.048-1.125-.048-3.298 0-2.172.009-2.445.048-3.298.134-2.908 1.748-4.521 4.654-4.653.854-.04 1.125-.049 3.298-.049s2.445.009 3.299.048c2.908.133 4.523 1.751 4.653 4.653.039.854.048 1.127.048 3.299 0 2.173-.009 2.445-.048 3.298z"/></svg>
+                                </a>
+                                <span class="tooltiptext">Instagram</span>
+                            </div>
+                            <!-- Tumblr -->
+                            <div class="tooltip">
+                                <a href="{BlogURL}" style="border-bottom: none;" target="_blank">
+                                    <svg xmlns="https://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-1.105 18.739c-.524.691-2.29 1.261-3.889 1.261-3.979 0-6.006-1.466-6.006-4.573v-4.104h-1.933l-.067-.067v-3.16l.045-.064.178-.059c1.597-.534 2.624-1.432 2.851-3.284.055-.447.431-.689.757-.689h4.767l.066.067v3.211l.066.067h2.535l.068.067v3.844l-.068.067h-2.545l-.067.067v3.81c.002.103.006.414.109.414h2.182l.064.046.992 2.941-.105.138zm-1.309-2.278l.664 1.967-.016.07c-.5.48-1.703.837-2.686.854l-.111.001c-3.232 0-3.788-2.468-3.788-3.926v-4.692l-.066-.067h-1.854l-.067-.067-.016-2.041.042-.062c1.67-.65 2.604-1.73 2.849-3.729.014-.111.105-.114.106-.114h2.298l.067.067v3.211l.068.067h2.535l.066.067v2.534l-.066.067h-2.547l-.064.067v4.47c.016.959.477 1.445 1.377 1.445.362 0 .744-.084 1.123-.229l.086.04z"/></svg>
+                                </a>
+                                <span class="tooltiptext">Tumblr</span>
+                            </div>
+                            <!-- Behance -->
+                            <div class="tooltip">
+                                <a href="https://www.behance.net/buiquangbao" style="border-bottom: none;" target="_blank">
+                                    <svg xmlns="https://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.228 15.01h-2.228v-2.01h2.261c1.878 0 2.003 2.01-.033 2.01zm6.758-2.677h3.018c-.117-1.715-2.73-1.977-3.018 0zm-6.804-3.333h-2.182v2h2.389c1.673 0 1.937-2-.207-2zm15.818-4v14c0 2.761-2.238 5-5 5h-14c-2.762 0-5-2.239-5-5v-14c0-2.761 2.238-5 5-5h14c2.762 0 5 2.239 5 5zm-10 3h5v-1h-5v1zm-3.552 3.618c1.907-.974 1.837-4.55-1.813-4.604h-4.635v9.978h4.311c4.522 0 4.445-4.534 2.137-5.374zm9.487.602c-.274-1.763-1.528-2.95-3.583-2.95-2.094 0-3.352 1.34-3.352 3.947 0 2.631 1.367 3.783 3.416 3.783s3.106-1.135 3.4-2h-2.111c-.736.855-2.893.521-2.767-1.353h5.06c.01-.634-.012-1.089-.063-1.427z"/></svg>
+                                </a>
+                                <span class="tooltiptext">Behance</span>
+                            </div>
+                            <!-- Dribble -->
+                            <div class="tooltip">
+                                <a href="https://dribbble.com/buiquangbao" style="border-bottom: none;" target="_blank">
+                                    <svg xmlns="https://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13.01 13.188c.617 1.613 1.072 3.273 1.361 4.973-2.232.861-4.635.444-6.428-.955 1.313-2.058 2.989-3.398 5.067-4.018zm-.53-1.286c-.143-.32-.291-.638-.447-.955-1.853.584-4.068.879-6.633.883l-.01.17c0 1.604.576 3.077 1.531 4.223 1.448-2.173 3.306-3.616 5.559-4.321zm-3.462-5.792c-1.698.863-2.969 2.434-3.432 4.325 2.236-.016 4.17-.261 5.791-.737-.686-1.229-1.471-2.426-2.359-3.588zm7.011.663c-1.117-.862-2.511-1.382-4.029-1.382-.561 0-1.102.078-1.621.21.873 1.174 1.648 2.384 2.326 3.625 1.412-.598 2.52-1.417 3.324-2.453zm7.971-1.773v14c0 2.761-2.238 5-5 5h-14c-2.762 0-5-2.239-5-5v-14c0-2.761 2.238-5 5-5h14c2.762 0 5 2.239 5 5zm-4 7c0-4.418-3.582-8-8-8s-8 3.582-8 8 3.582 8 8 8 8-3.582 8-8zm-6.656-1.542c.18.371.348.745.512 1.12 1.439-.248 3.018-.233 4.734.049-.084-1.478-.648-2.827-1.547-3.89-.922 1.149-2.16 2.055-3.699 2.721zm1.045 2.437c.559 1.496.988 3.03 1.279 4.598 1.5-1.005 2.561-2.61 2.854-4.467-1.506-.261-2.883-.307-4.133-.131z"/></svg>
+                                </a>
+                                <span class="tooltiptext">Dribble</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-1"></div>
+
+            <!-- --------------------------------- ALL POSTS ---------------------------------- -->
+            <div class="col-4">
+                <ol id="posts">
+                    {block:Posts}
+        
+                        <!-- Text Post -->
+                        {block:Text}
+                            <li class="post text">
+                                <div class="posted-time">
+                                    {ShortMonth} {DayOfMonth}, {Year}
+                                </div>
+                                {block:Title}
+                                    <h3 class="post-title"><a href="{Permalink}" target="_blank">{Title}</a></h3>
+                                {/block:Title}
+                                {Body}
+                                <ul class="tags">
+                                    {block:Tags}
+                                        <li>
+                                            <a href="{TagURL}">#{Tag}</a>
+                                        </li>
+                                    {/block:Tags}
+                                </ul>
+                            </li>
+                        {/block:Text}
+        
+                        <!-- Photo Text -->
+                        {block:Photo}
+                            <li class="post photo">
+                                <div class="posted-time">
+                                    {ShortMonth} {DayOfMonth}, {Year}
+                                </div>
+                                <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/>
+        
+                                {block:Caption}
+                                    <div class="caption">{Caption}</div>
+                                {/block:Caption}
+                                <ul class="tags">
+                                    {block:Tags}
+                                        <li>
+                                            <a href="{TagURL}">#{Tag}</a>
+                                        </li>
+                                    {/block:Tags}
+                                </ul>
+                            </li>
+                        {/block:Photo}
+        
+                        <!-- Panorama Post -->
+                        {block:Panorama}
+                            <li class="post panorama">
+                                {LinkOpenTag}
+                                    <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
+                                {LinkCloseTag}{block:Caption}
+                                    <div class="caption">{Caption}</div>
+                                {/block:Caption}
+                            </li>
+                        {/block:Panorama}
+        
+                        <!-- Photoset Post -->
+                        {block:Photoset}
+                            <li class="post photoset">
+                                <div class="posted-time">
+                                    {ShortMonth} {DayOfMonth}, {Year}
+                                </div>
+                                {Photoset}
+                                {block:Caption}
+                                    <div class="caption">{Caption}</div>
+                                {/block:Caption}
+                            </li>
+                        {/block:Photoset}
+        
+                        <!-- Quote Post -->
+                        {block:Quote}
+                            <li class="post quote">
+                                "{Quote}"
+        
+                                {block:Source}
+                                    <div class="source">{Source}</div>
+                                {/block:Source}
+                            </li>
+                        {/block:Quote}
+        
+                        <!-- Link Post -->
+                        {block:Link}
+                            <li class="post link">
+                                <a href="{URL}" class="link" {Target}>{Name}</a>
+        
+                                {block:Description}
+                                    <div class="description">{Description}</div>
+                                {/block:Description}
+                            </li>
+                        {/block:Link}
+        
+                        <!-- Chat Post -->
+                        {block:Chat}
+                            <li class="post chat">
+                                {block:Title}
+                                    <h3><a href="{Permalink}" target="_blank">{Title}</a></h3>
+                                {/block:Title}
+        
+                                <ul class="chat">
+                                    {block:Lines}
+                                        <li class="{Alt} user_{UserNumber}">
+                                            {block:Label}
+                                                <span class="label">{Label}</span>
+                                            {/block:Label}{Line}
+                                        </li>
+                                    {/block:Lines}
+                                </ul>
+                            </li>
+                        {/block:Chat}
+        
+                        <!-- Video Post -->
+                        {block:Video}
+                            <li class="post video">
+                                {Video-500}{block:Caption}
+                                    <div class="caption">{Caption}</div>
+                                {/block:Caption}
+                            </li>
+                        {/block:Video}
+        
+                        <!-- Audio Post -->
+                        {block:Audio}
+                            <li class="post audio">
+                                {AudioEmbed}
+                                {block:Caption}
+                                    <div class="caption">{Caption}</div>
+                                {/block:Caption}
+                            </li>
+                        {/block:Audio}
+                        {/block:Posts}
+                </ol>
+            </div>
+
+            <!-- --------------------------------- RIGHT SIDE ---------------------------------- -->
+            <div class="col-1"></div>
+            <div class="col-2">
+                <div class="col-2 side">
+
+                    <!--  -->
+                    <div class="side-inner">
+                        <div style="font-weight: bolder;">I AM WRITING</div>
+                        <br>
+                        <div style="text-align: justify;">
+                            {text:I am writing}
+                        </div>
+                        <br>
+                    </div>
+
+                    <!--  -->
+                    <div class="side-inner"s>
+                        Time:
+                        <p id="time" style="margin: 0px;"></p>
+                        <br>Today:
+                        <p id="date" style="margin: 0px;"></p>
+                        <br>Total blogs:<br>
+                        {text:Total blogs} blogs<br>
+                        <br>Total views on all blogs:<br>
+                        <div class="fhs-script"><script language="JavaScript">var fhsh = document.createElement('script');var fhs_id_h = "3353977";
+                            fhsh.src = "//freehostedscripts.net/ocount.php?site="+fhs_id_h+"&name=Views&a=1";
+                            document.head.appendChild(fhsh);document.write("<span id='h_"+fhs_id_h+"'></span>");
+                        </script>
+                        </div>
+                        <br>
+                    </div>
+
+                    <!--  -->
+                    <div class="side-inner">
+                        <div style="font-weight: bolder;">TOP BLOGS</div>
+                        <br>
+                        <div class="tags-side">
+                            <a href="#">How to use Flutter to create Android/iOS app?</a><br><br>
+                            <a href="#">How to use Figma to create a wireframe prototype?</a><br><br>
+                            <a href="#">Tips and tricks to focus.</a><br><br>
+                            <a href="#">Tumblr theme for you: Source code and tutorials.</a><br><br>
+                            <a href="#">Three ways to learn HTML5 quickly.</a><br><br>
+                            <a href="#">What is CSS? How to decorate your site with CSS?</a><br><br>
+                        </div>
+                        
+                    </div>
+
+                    <!--  -->
+                    <div class="side-inner">
+                        <div style="font-weight: bolder;">FAVORITE TAGS</div>
+                        <br>
+                        <div class="tags-side">
+                            <a href="#">#Tech</a><br><br>
+                            <a href="#">#Coding</a><br><br>
+                            <a href="#">#Front-end</a><br><br>
+                            <a href="#">#Tips&Tricks</a><br><br>
+                            <a href="#">#Lifestyle</a><br><br>
+                        </div>
+                    </div>
+
+                    <!--  -->
+                    <div class="side-inner">
+                        <div class="fhs-script-2">
+                            Random Facts:<br>
+                            <script language="JavaScript" src="https://freehostedscripts.net/fq.php"></script>
+                        </div>
+                    </div>
+
+                    <!--  -->
+                    <div class="side-inner">
+                        <div style="text-align: center;">
+                            Copyright © {CopyrightYears}<br>
+                            Bui Quang Bao<br><br>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col-1"></div>
+
+        </div>
+
+        
+        
+
+
+        <!-- --------------------------------------------- FOOTER -------------------------------------------- -->
+        <p id="footer" style="text-align: center; margin: 0px 0px 36px 0px;">
+            {block:PreviousPage}
+                <a href="{PreviousPage}">&#171; Previous Page</a>
+            {/block:PreviousPage}
+            <a href="/archive" style="margin: 0px 20px 0px 20px;">Blogs Archive</a>
+            {block:NextPage}
+                <a href="{NextPage}">Next Page &#187;</a>
+            {/block:NextPage}
+        </p>
+
+    </body>
+
+    <!-- Date and time -->
+    <script>
+        var dt = new Date();
+        var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        document.getElementById("time").innerHTML = dt.toLocaleTimeString();
+
+        var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+        var y = dt.getFullYear();
+        var m = months[dt.getMonth()];
+        var d = dt.getDate();
+        document.getElementById("date").innerHTML = m + ", " + d + ", " + y;
+    </script>
+
+</html>
