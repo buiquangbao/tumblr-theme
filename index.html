@@ -20,6 +20,59 @@
         <meta name="text:I am writing" content="about technology, coding tutorials, graphic design, photography and my life's adventures"/>
         <meta name="text:Total blogs" content="1"/>
 
+        <meta name="text:Blog 1" content=""/>
+        <meta name="text:Link Blog 1" content=""/>
+        <meta name="text:Blog 2" content=""/>
+        <meta name="text:Link Blog 2" content=""/>
+        <meta name="text:Blog 3" content=""/>
+        <meta name="text:Link Blog 3" content=""/>
+        <meta name="text:Blog 4" content=""/>
+        <meta name="text:Link Blog 4" content=""/>
+        <meta name="text:Blog 5" content=""/>
+        <meta name="text:Link Blog 5" content=""/>
+        <meta name="text:Blog 6" content=""/>
+        <meta name="text:Link Blog 6" content=""/>
+        <meta name="text:Blog 7" content=""/>
+        <meta name="text:Link Blog 7" content=""/>
+        <meta name="text:Blog 8" content=""/>
+        <meta name="text:Link Blog 8" content=""/>
+        <meta name="text:Blog 9" content=""/>
+        <meta name="text:Link Blog 9" content=""/>
+        <meta name="text:Blog 10" content=""/>
+        <meta name="text:Link Blog 10" content=""/>
+
+        <meta name="text:Collection 1" content=""/>
+        <meta name="text:Link Collection 1" content=""/>
+        <meta name="text:Collection 2" content=""/>
+        <meta name="text:Link Collection 2" content=""/>
+        <meta name="text:Collection 3" content=""/>
+        <meta name="text:Link Collection 3" content=""/>
+        <meta name="text:Collection 4" content=""/>
+        <meta name="text:Link Collection 4" content=""/>
+        <meta name="text:Collection 5" content=""/>
+        <meta name="text:Link Collection 5" content=""/>
+
+        <meta name="text:Tag 1" content=""/>
+        <meta name="text:Link Tag 1" content=""/>
+        <meta name="text:Tag 2" content=""/>
+        <meta name="text:Link Tag 2" content=""/>
+        <meta name="text:Tag 3" content=""/>
+        <meta name="text:Link Tag 3" content=""/>
+        <meta name="text:Tag 4" content=""/>
+        <meta name="text:Link Tag 4" content=""/>
+        <meta name="text:Tag 5" content=""/>
+        <meta name="text:Link Tag 5" content=""/>
+        <meta name="text:Tag 6" content=""/>
+        <meta name="text:Link Tag 6" content=""/>
+        <meta name="text:Tag 7" content=""/>
+        <meta name="text:Link Tag 7" content=""/>
+        <meta name="text:Tag 8" content=""/>
+        <meta name="text:Link Tag 8" content=""/>
+        <meta name="text:Tag 9" content=""/>
+        <meta name="text:Link Tag 9" content=""/>
+        <meta name="text:Tag 10" content=""/>
+        <meta name="text:Link Tag 10" content=""/>
+
     </head>
 
     <style>
@@ -82,6 +135,24 @@
             margin: 0px;
         }
 
+        /* ------------------------ Custom Scroll Bar ------------------------- */
+        /* width */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: rgb(221, 221, 221); 
+        }
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgb(39, 39, 39); 
+        }
+
         .fixed-div {
             position: fixed;
         }
@@ -95,7 +166,7 @@
         .post {
             background-color: white;
             border-radius: 12px;
-            margin: 0px 0px 50px 0px;
+            margin: 0px 0px 75px 0px;
             padding: 20px 20px 40px 20px;
             text-align: justify;
         }
@@ -200,11 +271,12 @@
             pointer-events: none;
         }
 
+
     </style>
     
     <body>
         
-        <div style="height: 25vh;"></div>
+        <div style="height: 22vh;"></div>
 
         <div class="row">
             <!-- --------------------------------- LEFT SIDE ---------------------------------- -->
@@ -213,10 +285,10 @@
                 <div class="fixed-div">
                     <div class="col-2" style="width: 250px; height: 350px; border-radius: 6px;">
                         <!-- 30 -->
-                        <div style="height: 35%; width: 100%; background-color: rgb(29, 29, 29);">
+                        <div style="height: 35%; width: 100%;">
                             <img src="{HeaderImage}" style="max-height: 100%; object-fit: cover;">
-                            <div style="width: 90px; height: 90px; background-color: rgb(255, 255, 255); position: relative; border-radius: 100%; left: 80px; top: -45px;">
-                                <div style="width: 75px; height: 75px; background-color: rgb(63, 211, 186); position: relative; border-radius: 100%; left: 7.5px; top: 7.5px; overflow: hidden;">
+                            <div style="width: 90px; height: 90px; background-color: white; position: relative; border-radius: 100%; left: 80px; top: -46px;">
+                                <div style="width: 75px; height: 75px; position: relative; border-radius: 100%; left: 7.5px; top: 7.5px; overflow: hidden;">
                                     <a href="{BlogURL}" style="border-bottom: none;">
                                         <img src="{PortraitURL-128}" style="max-height: 100%; max-width: 100%;">
                                     </a>
@@ -324,8 +396,9 @@
                                 <div class="posted-time">
                                     {ShortMonth} {DayOfMonth}, {Year}
                                 </div>
+                                <br>
                                 <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/>
-        
+                                <br><br>
                                 {block:Caption}
                                     <div class="caption">{Caption}</div>
                                 {/block:Caption}
@@ -356,10 +429,18 @@
                                 <div class="posted-time">
                                     {ShortMonth} {DayOfMonth}, {Year}
                                 </div>
+                                <br>
                                 {Photoset}
                                 {block:Caption}
                                     <div class="caption">{Caption}</div>
                                 {/block:Caption}
+                                <ul class="tags">
+                                    {block:Tags}
+                                        <li>
+                                            <a href="{TagURL}">#{Tag}</a>
+                                        </li>
+                                    {/block:Tags}
+                                </ul>
                             </li>
                         {/block:Photoset}
         
@@ -378,7 +459,6 @@
                         {block:Link}
                             <li class="post link">
                                 <a href="{URL}" class="link" {Target}>{Name}</a>
-        
                                 {block:Description}
                                     <div class="description">{Description}</div>
                                 {/block:Description}
@@ -391,7 +471,6 @@
                                 {block:Title}
                                     <h3><a href="{Permalink}" target="_blank">{Title}</a></h3>
                                 {/block:Title}
-        
                                 <ul class="chat">
                                     {block:Lines}
                                         <li class="{Alt} user_{UserNumber}">
@@ -439,6 +518,9 @@
                             {text:I am writing}
                         </div>
                         <br>
+                        <a href="https://buiquangbao.github.io/" target="_blank">View my Portfolio &#187;</a><br><br>
+                        <a href="{BlogURL}ask">Ask me anything &#187;</a><br><br>
+                        <a href="{BlogURL}submit">Submit your blog &#187;</a><br><br>
                     </div>
 
                     <!--  -->
@@ -463,14 +545,31 @@
                         <div style="font-weight: bolder;">TOP BLOGS</div>
                         <br>
                         <div class="tags-side">
-                            <a href="#">How to use Flutter to create Android/iOS app?</a><br><br>
-                            <a href="#">How to use Figma to create a wireframe prototype?</a><br><br>
-                            <a href="#">Tips and tricks to focus.</a><br><br>
-                            <a href="#">Tumblr theme for you: Source code and tutorials.</a><br><br>
-                            <a href="#">Three ways to learn HTML5 quickly.</a><br><br>
-                            <a href="#">What is CSS? How to decorate your site with CSS?</a><br><br>
+                            <a href="{text:Link Blog 1}">{text:Blog 1}</a>
+                            <a href="{text:Link Blog 2}">{text:Blog 2}</a>
+                            <a href="{text:Link Blog 3}">{text:Blog 3}</a>
+                            <a href="{text:Link Blog 4}">{text:Blog 4}</a>
+                            <a href="{text:Link Blog 5}">{text:Blog 5}</a>
+                            <a href="{text:Link Blog 6}">{text:Blog 6}</a>
+                            <a href="{text:Link Blog 7}">{text:Blog 7}</a>
+                            <a href="{text:Link Blog 8}">{text:Blog 8}</a>
+                            <a href="{text:Link Blog 9}">{text:Blog 9}</a>
+                            <a href="{text:Link Blog 10}">{text:Blog 10}</a>
                         </div>
                         
+                    </div>
+
+                    <!--  -->
+                    <div class="side-inner">
+                        <div style="font-weight: bolder;">COLLECTIONS</div>
+                        <br>
+                        <div class="tags-side">
+                            <a href="{text:Link Collection 1}">{text:Collection 1}</a>
+                            <a href="{text:Link Collection 2}">{text:Collection 2}</a>
+                            <a href="{text:Link Collection 3}">{text:Collection 3}</a>
+                            <a href="{text:Link Collection 4}">{text:Collection 4}</a>
+                            <a href="{text:Link Collection 5}">{text:Collection 5}</a>
+                        </div>
                     </div>
 
                     <!--  -->
@@ -478,11 +577,16 @@
                         <div style="font-weight: bolder;">FAVORITE TAGS</div>
                         <br>
                         <div class="tags-side">
-                            <a href="#">#Tech</a><br><br>
-                            <a href="#">#Coding</a><br><br>
-                            <a href="#">#Front-end</a><br><br>
-                            <a href="#">#Tips&Tricks</a><br><br>
-                            <a href="#">#Lifestyle</a><br><br>
+                            <a href="{text:Link Tag 1}">{text:Tag 1}</a>
+                            <a href="{text:Link Tag 2}">{text:Tag 2}</a>
+                            <a href="{text:Link Tag 3}">{text:Tag 3}</a>
+                            <a href="{text:Link Tag 4}">{text:Tag 4}</a>
+                            <a href="{text:Link Tag 5}">{text:Tag 5}</a>
+                            <a href="{text:Link Tag 6}">{text:Tag 6}</a>
+                            <a href="{text:Link Tag 7}">{text:Tag 7}</a>
+                            <a href="{text:Link Tag 8}">{text:Tag 8}</a>
+                            <a href="{text:Link Tag 9}">{text:Tag 9}</a>
+                            <a href="{text:Link Tag 10}">{text:Tag 10}</a>
                         </div>
                     </div>
 
@@ -508,9 +612,6 @@
 
         </div>
 
-        
-        
-
 
         <!-- --------------------------------------------- FOOTER -------------------------------------------- -->
         <p id="footer" style="text-align: center; margin: 0px 0px 36px 0px;">
@@ -523,6 +624,84 @@
             {/block:NextPage}
         </p>
 
+
+        
+
+        <!-- ---------------------- Back to top ---------------------- -->
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script> 
+        <script type = "text/javascript" >
+            var scrolltotop = {
+              setting: {
+                startline: 100,
+                scrollto: 0,
+                scrollduration: 1e3,
+                fadeduration: [500, 100]
+              },
+              controlHTML: '<div style="font-size: x-large;">&Uarr;</div>',
+              controlattrs: {
+                offsetx: 20,
+                offsety: 15
+              },
+              anchorkeyword: "#top",
+              state: {
+                isvisible: !1,
+                shouldvisible: !1
+              },
+              scrollup: function() {
+                this.cssfixedsupport || this.$control.css({
+                  opacity: 0
+                });
+                var t = isNaN(this.setting.scrollto) ? this.setting.scrollto : parseInt(this.setting.scrollto);
+                t = "string" == typeof t && 1 == jQuery("#" + t).length ? jQuery("#" + t).offset().top : 0, this.$body.animate({
+                  scrollTop: t
+                }, this.setting.scrollduration)
+              },
+              keepfixed: function() {
+                var t = jQuery(window),
+                  o = t.scrollLeft() + t.width() - this.$control.width() - this.controlattrs.offsetx,
+                  s = t.scrollTop() + t.height() - this.$control.height() - this.controlattrs.offsety;
+                this.$control.css({
+                  left: o + "px",
+                  top: s + "px"
+                })
+              },
+              togglecontrol: function() {
+                var t = jQuery(window).scrollTop();
+                this.cssfixedsupport || this.keepfixed(), this.state.shouldvisible = t >= this.setting.startline ? !0 : !1, this.state.shouldvisible && !this.state.isvisible ? (this.$control.stop().animate({
+                  opacity: 1
+                }, this.setting.fadeduration[0]), this.state.isvisible = !0) : 0 == this.state.shouldvisible && this.state.isvisible && (this.$control.stop().animate({
+                  opacity: 0
+                }, this.setting.fadeduration[1]), this.state.isvisible = !1)
+              },
+              init: function() {
+                jQuery(document).ready(function(t) {
+                  var o = scrolltotop,
+                    s = document.all;
+                  o.cssfixedsupport = !s || s && "CSS1Compat" == document.compatMode && window.XMLHttpRequest, o.$body = t(window.opera ? "CSS1Compat" == document.compatMode ? "html" : "body" : "html,body"), o.$control = t('<div id="topcontrol">' + o.controlHTML + "</div>").css({
+                    position: o.cssfixedsupport ? "fixed" : "absolute",
+                    bottom: o.controlattrs.offsety,
+                    right: o.controlattrs.offsetx,
+                    opacity: 0,
+                    cursor: "pointer"
+                  }).attr({
+                    title: "Scroll to Top"
+                  }).click(function() {
+                    return o.scrollup(), !1
+                  }).appendTo("body"), document.all && !window.XMLHttpRequest && "" != o.$control.text() && o.$control.css({
+                    width: o.$control.width()
+                  }), o.togglecontrol(), t('a[href="' + o.anchorkeyword + '"]').click(function() {
+                    return o.scrollup(), !1
+                  }), t(window).bind("scroll resize", function(t) {
+                    o.togglecontrol()
+                  })
+                })
+              }
+            };
+          scrolltotop.init(); 
+        </script>
+        <!-- ---------------------- /Back to top ---------------------- -->
+
+        
     </body>
 
     <!-- Date and time -->
@@ -536,6 +715,7 @@
         var m = months[dt.getMonth()];
         var d = dt.getDate();
         document.getElementById("date").innerHTML = m + ", " + d + ", " + y;
+
     </script>
 
 </html>
