@@ -124,6 +124,33 @@
             border-radius: 6px;
         }
 
+        .lightbox {
+            /** Default lightbox to hidden */
+            display: none;
+            /** Position and style */
+            position: fixed;
+            z-index: 999;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.8);
+        }
+        .lightbox img {
+            /** Pad the lightbox image */
+            /* max-width: 90%; */
+            max-height: 90%;
+            width: auto;
+            margin-top: 2%;
+        }
+        .lightbox:target {
+            /** Remove default browser outline */
+            outline: none;
+            /** Unhide lightbox **/
+            display: block;
+        }
+
         a {
             color: rgb(61, 61, 61);
             text-decoration: none;
@@ -406,7 +433,8 @@
                                     {ShortMonth} {DayOfMonth}, {Year}
                                 </div>
                                 <br>
-                                <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/>
+                                <a href="#{PhotoURL-HighRes}"><img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/></a>
+                                <a href="#_" class="lightbox" id="{PhotoURL-HighRes}"><img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/></a>
                                 <br><br>
                                 {block:Caption}
                                     <div class="caption">{Caption}</div>
@@ -440,6 +468,12 @@
                                 </div>
                                 <br>
                                 {Photoset}
+                                <!-- {block:Photos}
+                                <div style="width: 33%; float: left;">
+                                    <a href="#{PhotoURL-HighRes}"><img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/></a>
+                                </div>
+                                <a href="#_" class="lightbox" id="{PhotoURL-HighRes}"><img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/></a>
+                                {/block:Photos} -->
                                 {block:Caption}
                                     <div class="caption">{Caption}</div>
                                 {/block:Caption}
