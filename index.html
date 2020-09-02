@@ -80,6 +80,12 @@
             font-family: 'Quicksand', sans-serif;
             box-sizing: border-box;
         }
+
+        ::selection {
+            color: wheat;
+            background: white; 
+        }
+
         /* RWD Grid */
         .row::after {
             content: "";
@@ -122,6 +128,10 @@
             width: 100%;
             height: auto;
             border-radius: 6px;
+        }
+
+        p {
+            line-height: 1.5;
         }
 
         .lightbox {
@@ -316,8 +326,8 @@
 
         <div class="row">
             <!-- --------------------------------- LEFT SIDE ---------------------------------- -->
-            <div class="col-space"></div>
-            <div class="col-sub">
+            <div class="col-1"></div>
+            <div class="col-2">
                 <div class="fixed-div">
                     <div class="col-2" style="width: 250px; height: 350px; border-radius: 6px;">
                         <!-- 30 -->
@@ -399,10 +409,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-space"></div>
+            <div class="col-1"></div>
 
             <!-- --------------------------------- ALL POSTS ---------------------------------- -->
-            <div class="col-main">
+            <div class="col-4">
                 <ol id="posts">
                     {block:Posts}
         
@@ -413,7 +423,7 @@
                                     {ShortMonth} {DayOfMonth}, {Year}
                                 </div>
                                 {block:Title}
-                                    <h3 class="post-title"><a href="{Permalink}" target="_blank">{Title}</a></h3>
+                                    <h3 class="post-title">{Title}</h3>
                                 {/block:Title}
                                 {Body}
                                 <ul class="tags">
@@ -549,8 +559,8 @@
             </div>
 
             <!-- --------------------------------- RIGHT SIDE ---------------------------------- -->
-            <div class="col-space"></div>
-            <div class="col-sub">
+            <div class="col-1"></div>
+            <div class="col-2">
                 <div class="col-2 side">
 
                     <!--  -->
@@ -652,7 +662,7 @@
                     
                 </div>
             </div>
-            <div class="col-space"></div>
+            <div class="col-1"></div>
 
         </div>
 
