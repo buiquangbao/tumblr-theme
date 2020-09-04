@@ -217,6 +217,65 @@
             text-align: justify;
         }
 
+        .chat {
+            list-style: none;
+        }
+        .chat .user {
+            color: black;
+        }
+        .chat .label {
+            font-weight: normal;
+        }
+        .chat .line {
+            padding: 4px 12px;
+            border-radius: 4px;
+        }
+
+        .chat [class*="user_thought"] .label, [class*="user_env"] .label {
+            color: transparent;
+            font-size: 0px;
+        }
+
+        .chat [class*="adj_env"] {
+            margin: 0;
+            padding: 0;
+            font-size: 0;
+        }
+        .chat [class*="adj_thought"] {
+            margin: 0;
+            padding: 0;
+            font-size: 0;
+        }
+
+        .chat [class*="line_thought"] {
+            text-align: center;
+            color: rgb(83, 83, 83);
+            font-style: italic;
+        }
+
+        .chat [class*="line_A"] {
+            float: left;
+            color: black;
+            background-color: rgb(240, 240, 240);
+            margin-right: 20%;
+        }
+
+        .chat [class*="user_B"] {
+            text-align: right;
+        } .chat [class*="line_B"] {
+            float: right;
+            color: white;
+            background-color: rgb(58, 58, 58);
+            margin-left: 20%;
+        }
+
+        .chat [class*="line_C"] {
+            float: left;
+            color: white;
+            background-color: rgb(178, 221, 143);
+            margin-right: 20%;
+        }
+
         .side {
             width: 100%;
             overflow: hidden; 
@@ -324,6 +383,7 @@
         
         <div style="height: 22vh;"></div>
 
+        <!-- MAIN -->
         <div class="row">
             <!-- --------------------------------- LEFT SIDE ---------------------------------- -->
             <div class="col-1"></div>
@@ -521,17 +581,32 @@
                         <!-- Chat Post -->
                         {block:Chat}
                             <li class="post chat">
+                                <div class="posted-time">
+                                    {ShortMonth} {DayOfMonth}, {Year}
+                                </div>
+                                <br>
                                 {block:Title}
                                     <h3><a href="{Permalink}" target="_blank">{Title}</a></h3>
                                 {/block:Title}
                                 <ul class="chat">
                                     {block:Lines}
-                                        <li class="{Alt} user_{UserNumber}">
-                                            {block:Label}
-                                                <span class="label">{Label}</span>
-                                            {/block:Label}{Line}
+                                        {block:Label}
+                                        <li class="{Alt} user_{UserNumber} user_{Label}">
+                                            <div class="label label_{Label}">{Label}</div>
+                                            <div>
+                                                <div class="line line_{Label}">{Line}</div>
+                                                <div class="line adj_{Label}" style="color: transparent;">.</div>
+                                            </div>
                                         </li>
+                                        {/block:Label}
                                     {/block:Lines}
+                                </ul>
+                                <ul class="tags">
+                                    {block:Tags}
+                                        <li>
+                                            <a href="{TagURL}">#{Tag}</a>
+                                        </li>
+                                    {/block:Tags}
                                 </ul>
                             </li>
                         {/block:Chat}
@@ -679,7 +754,6 @@
         </p>
 
 
-        
 
         <!-- ---------------------- Back to top ---------------------- -->
         <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script> 
