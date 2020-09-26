@@ -253,20 +253,42 @@
             font-style: italic;
         }
 
+        /* Me */
+        .chat [class*="user_Bao"] {
+            text-align: right;
+        } .chat [class*="line_Bao"] {
+            float: right;
+            color: white;
+            background-color: rgb(58, 58, 58);
+            margin-left: 20%;
+        }
+        .chat [class*="user_Me"] {
+            text-align: right;
+        } .chat [class*="line_Me"] {
+            float: right;
+            color: white;
+            background-color: rgb(58, 58, 58);
+            margin-left: 20%;
+        }
+
+        /*  */
         .chat [class*="line_A"] {
             float: left;
             color: black;
             background-color: rgb(240, 240, 240);
             margin-right: 20%;
         }
-
-        .chat [class*="user_B"] {
-            text-align: right;
-        } .chat [class*="line_B"] {
-            float: right;
-            color: white;
-            background-color: rgb(58, 58, 58);
-            margin-left: 20%;
+        .chat [class*="line_Bot"] {
+            float: left;
+            color: black;
+            background-color: rgb(240, 240, 240);
+            margin-right: 20%;
+        }
+        .chat [class*="line_Unknown"] {
+            float: left;
+            color: black;
+            background-color: rgb(240, 240, 240);
+            margin-right: 20%;
         }
 
         .chat [class*="line_C"] {
@@ -289,7 +311,6 @@
 
         .post-title {
             text-align: center;
-            text-transform: uppercase;
             font-size: larger;
             font-weight: bold;
         }
@@ -586,8 +607,11 @@
                                 </div>
                                 <br>
                                 {block:Title}
-                                    <h3><a href="{Permalink}" target="_blank">{Title}</a></h3>
+                                    <h3 class="post-title">{Title}</h3>
                                 {/block:Title}
+                                <!-- {block:Title}
+                                    <h3><a href="{Permalink}" target="_blank">{Title}</a></h3>
+                                {/block:Title} -->
                                 <ul class="chat">
                                     {block:Lines}
                                         {block:Label}
