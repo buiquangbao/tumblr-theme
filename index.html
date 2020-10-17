@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>{Title} | Blogs</title>
-        <link rel="shortcut icon" href="{Favicon}">
+        <link rel="shortcut icon" href="https://i.imgur.com/26MpwJg.png">
         <link rel="alternate" type="application/rss+xml" href="{RSS}">
         {block:Description}
             <meta name="description" content="{MetaDescription}" />
@@ -397,12 +397,17 @@
             pointer-events: none;
         }
 
+        .h22vh {
+            height: 22vh;
+        } @media only screen and (max-width: 768px) {
+            .h22vh {height: 10px;}
+        }
 
     </style>
     
     <body>
         
-        <div style="height: 22vh;"></div>
+        <div class="h22vh"></div>
 
         <!-- MAIN -->
         <div class="row">
@@ -681,8 +686,8 @@
                         <p id="time" style="margin: 0px;"></p>
                         <br>Today:
                         <p id="date" style="margin: 0px;"></p>
-                        <br>Total blogs:<br>
-                        {text:Total blogs} blogs<br>
+                        <!-- <br>Total blogs:<br>
+                        {text:Total blogs} blogs<br> -->
                         <br>Total views on all blogs:<br>
                         <div class="fhs-script">
                             <script language="JavaScript">var fhsh = document.createElement('script');var fhs_id_h = "3354095";
@@ -692,26 +697,7 @@
                         </div>
                         <br>
                     </div>
-
-                    <!--  -->
-                    <div class="side-inner">
-                        <div style="font-weight: bolder;">TOP BLOGS</div>
-                        <br>
-                        <div class="tags-side">
-                            <a href="{text:Link Blog 1}">{text:Blog 1}</a>
-                            <a href="{text:Link Blog 2}">{text:Blog 2}</a>
-                            <a href="{text:Link Blog 3}">{text:Blog 3}</a>
-                            <a href="{text:Link Blog 4}">{text:Blog 4}</a>
-                            <a href="{text:Link Blog 5}">{text:Blog 5}</a>
-                            <a href="{text:Link Blog 6}">{text:Blog 6}</a>
-                            <a href="{text:Link Blog 7}">{text:Blog 7}</a>
-                            <a href="{text:Link Blog 8}">{text:Blog 8}</a>
-                            <a href="{text:Link Blog 9}">{text:Blog 9}</a>
-                            <a href="{text:Link Blog 10}">{text:Blog 10}</a>
-                        </div>
-                        
-                    </div>
-
+                    
                     <!--  -->
                     <div class="side-inner">
                         <div style="font-weight: bolder;">COLLECTIONS</div>
@@ -741,6 +727,25 @@
                             <a href="{text:Link Tag 9}">{text:Tag 9}</a>
                             <a href="{text:Link Tag 10}">{text:Tag 10}</a>
                         </div>
+                    </div>
+
+                    <!--  -->
+                    <div class="side-inner">
+                        <div style="font-weight: bolder;">TOP BLOGS</div>
+                        <br>
+                        <div class="tags-side">
+                            <a href="{text:Link Blog 1}">{text:Blog 1}</a>
+                            <a href="{text:Link Blog 2}">{text:Blog 2}</a>
+                            <a href="{text:Link Blog 3}">{text:Blog 3}</a>
+                            <a href="{text:Link Blog 4}">{text:Blog 4}</a>
+                            <a href="{text:Link Blog 5}">{text:Blog 5}</a>
+                            <a href="{text:Link Blog 6}">{text:Blog 6}</a>
+                            <a href="{text:Link Blog 7}">{text:Blog 7}</a>
+                            <a href="{text:Link Blog 8}">{text:Blog 8}</a>
+                            <a href="{text:Link Blog 9}">{text:Blog 9}</a>
+                            <a href="{text:Link Blog 10}">{text:Blog 10}</a>
+                        </div>
+                        
                     </div>
 
                     <!--  -->
